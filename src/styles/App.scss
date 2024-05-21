@@ -1,0 +1,11 @@
+@use "Resolutions" as *;
+
+.main {
+  position: relative;
+  overflow: hidden;
+
+  @include tablet {
+    position: initial;
+    overflow: initial;
+  }
+}

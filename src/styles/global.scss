@@ -1,0 +1,134 @@
+@use "Resolutions" as *;
+
+:root {
+  --c-white: #ffffff;
+  --c-darkBlue: #070724;
+  --c-darkGray: #38384f;
+  --c-gray: #838391;
+  --c-mercury: #419ebb;
+  --c-venus: #eda249;
+  --c-earth: #6f2ed6;
+  --c-jupiter: #d83a34;
+  --c-mars: #d14c32;
+  --c-saturn: #cd5120;
+  --c-uranus: #1ec2a4;
+  --c-neptune: #2d68f0;
+
+  --f-xl: clamp(4rem, 2.592rem + 3.756vw, 8rem);
+  --f-l: clamp(2rem, 1.296rem + 1.878vw, 4rem);
+  --f-m: clamp(1.1rem, 0.994rem + 0.282vw, 1.4rem);
+  --f-s: clamp(0.9rem, 0.794rem + 0.282vw, 1.2rem);
+  --f-xs: clamp(0.8rem, 0.694rem + 0.282vw, 1.1rem);
+
+  --lh-xl: clamp(5.2rem, 3.404rem + 4.789vw, 10.3rem);
+  --lh-l: clamp(2.6rem, 1.685rem + 2.441vw, 5.2rem);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+  text-decoration: none;
+  list-style: none;
+}
+
+html {
+  font-size: 62.5%; //10px/16px = 62.5%, 1rem = 10px;
+}
+
+body {
+  min-height: 100vh;
+  color: var(--c-white);
+  background-color: var(--c-darkBlue);
+  background-image: url("../assets/background-stars.svg");
+  background-size: cover;
+  font-family: "Spartan", sans-serif;
+  font-weight: 400;
+  font-size: var(--f-m); //11px - 14px
+  line-height: 22px;
+  @include desktop {
+    line-height: 25px;
+  }
+}
+
+h1,
+h2 {
+  font-family: "Antonio", sans-serif;
+  font-weight: 400;
+}
+
+h3,
+h4 {
+  font-family: "Spartan", sans-serif;
+  font-weight: bold;
+}
+
+h1 {
+  font-size: var(--f-xl); //40px - 80px
+  line-height: clamp(5.2rem, 3.404rem + 4.789vw, 10.3rem); //52px - 103px
+}
+
+h2 {
+  font-size: var(--f-l); //20px - 40px
+  line-height: clamp(2.6rem, 1.685rem + 2.441vw, 5.2rem); //26px - 52px
+
+  letter-spacing: -0.75px;
+  @include tablet {
+    letter-spacing: -0.9px;
+  }
+  @include desktop {
+    letter-spacing: -1.5px;
+  }
+}
+
+h3 {
+  font-size: var(--f-s); //9px - 12px
+  letter-spacing: 1.93px;
+
+  @include tablet {
+    line-height: 2.5rem;
+  }
+
+  @include desktop {
+    letter-spacing: 2.5px;
+  }
+}
+
+h4 {
+  font-size: var(--f-xs); //8px - 11px
+
+  line-height: 16px;
+  letter-spacing: 0.73px;
+  @include tablet {
+    letter-spacing: 1px;
+  }
+  @include desktop {
+    line-height: 2.5rem;
+  }
+}
+
+.wrapper {
+  width: min(1110px, calc(100% - 48px));
+  margin: auto;
+}
+
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+textarea,
+button,
+select {
+  font: inherit;
+}

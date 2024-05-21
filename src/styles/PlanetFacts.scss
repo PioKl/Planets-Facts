@@ -1,0 +1,309 @@
+@use "Resolutions" as *;
+
+.planetContainer {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto auto auto;
+  gap: 0;
+  grid-template-areas:
+    "planetButtons"
+    "planetPicture"
+    "planetInfo"
+    "planetQuickInfo";
+
+  @include tablet {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 0px 0px;
+    grid-template-areas:
+      "planetPicture planetPicture"
+      "planetInfo planetButtons"
+      "planetQuickInfo planetQuickInfo";
+  }
+
+  @include desktopSmall {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto;
+    grid-template-areas:
+      "planetPicture planetInfo"
+      "planetPicture planetButtons"
+      "planetQuickInfo planetQuickInfo";
+  }
+}
+
+.planetButtonsContainer {
+  grid-area: planetButtons;
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--f-s);
+  font-weight: bold;
+  margin-bottom: 9.5rem;
+  padding: 2rem 0;
+  overflow: hidden;
+
+  @include tablet {
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.6rem;
+    padding: 0;
+    margin-left: 6.9rem;
+    margin-bottom: 0;
+  }
+
+  @include desktopSmall {
+    max-width: 36rem;
+    width: 100%;
+    margin-left: auto;
+    margin-bottom: 8.7rem;
+  }
+
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 6.2rem;
+    width: 100%;
+    left: 0;
+    height: 0.1rem;
+    background-color: rgba(255, 255, 255, 0.2);
+
+    @include tablet {
+      content: none;
+    }
+  }
+
+  &__button {
+    position: relative;
+    width: 8rem;
+    background-color: transparent;
+    border: none;
+    text-transform: uppercase;
+    letter-spacing: 1.93px;
+    color: var(--c-white);
+
+    @include tablet {
+      line-height: 2.5rem;
+    }
+
+    @include desktopSmall {
+      letter-spacing: 2.57px;
+    }
+
+    &.--two {
+      &:after {
+        content: "Structure";
+      }
+    }
+    &.--three {
+      &:after {
+        content: "Surface";
+      }
+    }
+
+    @include tablet {
+      cursor: pointer;
+      padding-block: 0.8rem;
+      padding-left: 2rem;
+      text-align: left;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      width: 100%;
+
+      &:before {
+        color: rgba(255, 255, 255, 0.5);
+        margin-right: 1.7rem;
+      }
+
+      &.--one {
+        &:before {
+          content: "01";
+        }
+      }
+      &.--two {
+        &:before {
+          content: "02";
+        }
+        &:after {
+          content: "Internal Structure";
+        }
+      }
+      &.--three {
+        &:before {
+          content: "03";
+        }
+        &:after {
+          content: "Surface Geology";
+        }
+      }
+    }
+
+    @include desktopSmall {
+      padding-block: 1.05rem;
+    }
+
+    &.--active {
+      color: rgba(255, 255, 255, 0.5);
+      @include tablet {
+        color: var(--col-white);
+        background-color: #419ebb;
+        border-color: transparent;
+      }
+      span {
+        &:after {
+          content: "";
+          display: block;
+          position: absolute;
+          top: 3.8rem;
+          width: 100%;
+          height: 0.4rem;
+          //background-color: red;
+
+          @include tablet {
+            content: none;
+          }
+        }
+      }
+    }
+  }
+}
+.planetPictureContainer {
+  grid-area: planetPicture;
+  display: grid;
+  place-items: center;
+  margin-bottom: 9.8rem;
+
+  @include tablet {
+    margin-bottom: 13rem;
+  }
+
+  @include desktopSmall {
+    margin-bottom: 8.7rem;
+  }
+
+  &__image {
+    max-width: 11.1rem;
+    max-height: 11.1rem;
+
+    @include tablet {
+      max-width: 18.4rem;
+      max-height: 18.4rem;
+    }
+
+    @include desktopSmall {
+      max-width: 29rem;
+      max-height: 29rem;
+    }
+  }
+}
+.planetInfoContainer {
+  grid-area: planetInfo;
+  text-align: left;
+  margin-bottom: 2.8rem;
+
+  @include tablet {
+    margin-bottom: 2.7rem;
+  }
+  @include desktopSmall {
+    max-width: 36rem;
+    margin-left: auto;
+  }
+
+  &__heading {
+    text-transform: uppercase;
+    margin-bottom: 1.6rem;
+
+    @include tablet {
+      margin-bottom: 2.4rem;
+    }
+  }
+
+  &__info {
+    margin-bottom: 3.2rem;
+  }
+
+  &__source {
+    display: flex;
+    justify-content: start;
+    color: rgba(255, 255, 255, 0.5);
+    span {
+      &:after {
+        content: ":";
+        display: inline-block;
+        margin-inline: 0.3rem;
+      }
+    }
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    color: inherit;
+    text-decoration: underline;
+    font-weight: bold;
+    &:after {
+      content: "";
+      background: url("../assets/icon-source.svg");
+      width: 1.2rem;
+      height: 1.2rem;
+      margin-left: 0.4rem;
+    }
+  }
+}
+.planetQuickInfoContainer {
+  grid-area: planetQuickInfo;
+  display: grid;
+  gap: 0.8rem;
+  margin-bottom: 4.7rem;
+
+  @include tablet {
+    display: flex;
+    gap: 1.1rem;
+  }
+}
+
+.planetCharacteristics {
+  display: flex;
+  justify-content: space-between;
+  padding: 1.2rem 2.4rem;
+  text-transform: uppercase;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+
+  @include tablet {
+    flex: 1;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-block: 1.6rem;
+    padding-inline: 1.5rem;
+    padding-right: 0;
+  }
+
+  &__first {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: var(--f-xs);
+    letter-spacing: 0.73px;
+    font-weight: bold;
+
+    @include tablet {
+      padding-bottom: 0.6rem;
+    }
+
+    @include desktopSmall {
+      letter-spacing: 1px;
+    }
+  }
+
+  &__second {
+    font-family: "Antonio", sans-serif;
+    font-size: var(--f-l);
+    font-weight: 400;
+    letter-spacing: -0.75px;
+
+    @include tablet {
+      line-height: normal;
+      letter-spacing: -0.9px;
+    }
+    @include desktopSmall {
+      letter-spacing: -1.5px;
+    }
+  }
+}

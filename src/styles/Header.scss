@@ -1,0 +1,279 @@
+@use "Resolutions" as *;
+
+$mobileColorMercury: #def4fc;
+$mobileColorVenus: #f7cc7f;
+$mobileColorEarth: #545bfe;
+$mobileColorMars: #ff6a45;
+$mobileColorJupiter: #ecad7a;
+$mobileColorSaturn: #fccb6b;
+$mobileColorUranus: #65f0d5;
+$mobileColorNeptune: #497efa;
+
+.header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+
+  @include tablet {
+    margin-bottom: 14.6rem;
+  }
+
+  @include desktopSmall {
+    margin-bottom: 12.6rem;
+  }
+}
+
+.topnav {
+  width: min(1368px, calc(100% - 48px));
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-block: 1.6rem;
+  margin: auto;
+
+  @include tablet {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  @include desktopSmall {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  &__logo {
+    font-size: 2.8rem;
+    line-height: normal;
+    letter-spacing: -1.05px;
+
+    @include tablet {
+      margin-bottom: 3.9rem;
+    }
+    @include desktopSmall {
+      margin-bottom: 0;
+    }
+  }
+
+  button {
+    display: grid;
+    background: none;
+    border: none;
+    padding: 0;
+
+    @media (width >= 48em) {
+      display: none;
+    }
+  }
+
+  &__open[aria-expanded="true"] {
+    display: none;
+    + .topnav__close + .topnav__menu {
+      translate: 0;
+
+      @media (prefers-reduced-motion) {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__open[aria-expanded="false"] {
+    + .topnav__close {
+      display: none;
+    }
+  }
+
+  &__close {
+    display: block;
+    margin-inline-start: auto;
+    opacity: 25%;
+  }
+
+  &__menu {
+    font-size: 1.1rem;
+    font-weight: bold;
+    line-height: 2.5rem;
+    letter-spacing: 0.1rem;
+    text-transform: uppercase;
+    @media (width < 48em) {
+      z-index: 2;
+      position: fixed;
+      inset: 0;
+      margin-top: 6.9rem; //68px height of topnav + 1px of border
+      padding-top: 2.4rem;
+      padding-inline: 2.4rem;
+      margin-inline: auto;
+      font-size: 1.5rem;
+      letter-spacing: 0.136rem;
+      background-color: var(--c-darkBlue);
+      translate: 100vw 0;
+      transition: translate 0.5s ease-in-out;
+    }
+
+    @media (width < 48em) and (prefers-reduced-motion) {
+      translate: 0;
+      opacity: 0;
+      transition: opacity 500ms ease-in-out;
+    }
+  }
+
+  &__links {
+    display: flex;
+    gap: 3.3rem;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+
+    @media (width < 48em) {
+      gap: 0rem;
+      flex-direction: column;
+    }
+  }
+
+  &__item {
+    list-style-type: none;
+
+    @media (width < 48em) {
+      display: flex;
+      width: 100%;
+
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+  }
+
+  &__link {
+    color: var(--c-white);
+    @media (width < 48em) {
+      display: flex;
+      align-items: center;
+      width: inherit;
+      padding-block: 2rem;
+
+      &:before {
+        content: "";
+        display: block;
+        width: 2rem;
+        height: 2rem;
+        margin-right: 2.4rem;
+        border-radius: 50%;
+      }
+
+      &.--mercury {
+        &:before {
+          background-color: $mobileColorMercury;
+        }
+      }
+      &.--venus {
+        &:before {
+          background-color: $mobileColorVenus;
+        }
+      }
+      &.--earth {
+        &:before {
+          background-color: $mobileColorEarth;
+        }
+      }
+      &.--mars {
+        &:before {
+          background-color: $mobileColorMars;
+        }
+      }
+      &.--jupiter {
+        &:before {
+          background-color: $mobileColorJupiter;
+        }
+      }
+      &.--saturn {
+        &:before {
+          background-color: $mobileColorSaturn;
+        }
+      }
+      &.--uranus {
+        &:before {
+          background-color: $mobileColorUranus;
+        }
+      }
+      &.--neptune {
+        &:before {
+          background-color: $mobileColorNeptune;
+        }
+      }
+
+      &:after {
+        content: "";
+        display: block;
+        background-image: url("../assets/icon-chevron.svg");
+        width: 0.6rem;
+        height: 0.8rem;
+        margin-right: 0.8rem;
+        margin-left: auto;
+      }
+    }
+
+    @include desktopSmall {
+      position: relative;
+      display: grid;
+      place-items: center;
+      width: 6.8rem;
+
+      &:after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 4.2rem;
+        width: 0;
+        height: 0.4rem;
+        transition: all 0.2s ease-in-out;
+      }
+
+      &.--mercury {
+        &:after {
+          background-color: var(--c-mercury);
+        }
+      }
+      &.--venus {
+        &:after {
+          background-color: var(--c-venus);
+        }
+      }
+      &.--mercury {
+        &:after {
+          background-color: var(--c-mercury);
+        }
+      }
+      &.--earth {
+        &:after {
+          background-color: var(--c-earth);
+        }
+      }
+      &.--mars {
+        &:after {
+          background-color: var(--c-mars);
+        }
+      }
+      &.--jupiter {
+        &:after {
+          background-color: var(--c-jupiter);
+        }
+      }
+      &.--saturn {
+        &:after {
+          background-color: var(--c-saturn);
+        }
+      }
+      &.--uranus {
+        &:after {
+          background-color: var(--c-uranus);
+        }
+      }
+      &.--neptune {
+        &:after {
+          background-color: var(--c-neptune);
+        }
+      }
+
+      &:hover {
+        &:after {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
