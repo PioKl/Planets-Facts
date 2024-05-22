@@ -1,17 +1,31 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 import "../styles/Header.scss";
 import hamburgerMenuIcon from "../assets/icon-hamburger.svg";
+import { Planet } from "../types/types";
+
+interface PlanetFactsProps {
+  planets: Planet[];
+}
 
 interface HeaderProps {
   mainRef: React.RefObject<HTMLDivElement>;
+  setPlanetIndex: React.Dispatch<React.SetStateAction<number>>;
 }
 
-const Header: React.FC<HeaderProps> = ({ mainRef }) => {
+type CombinedProps = HeaderProps & PlanetFactsProps;
+
+const Header: React.FC<CombinedProps> = ({
+  mainRef,
+  planets,
+  setPlanetIndex,
+}) => {
   const bodyRef = useRef<HTMLBodyElement>(document.body as HTMLBodyElement);
   const btnOpen = useRef<HTMLButtonElement>(null);
   const btnClose = useRef<HTMLButtonElement>(null);
   const topNavMenu = useRef<HTMLDivElement>(null);
+
+  const [activeButton, setActiveButton] = useState<number>(0);
 
   const handleBtnOpen = () => {
     btnOpen.current && btnOpen.current.setAttribute("aria-expanded", "true");
@@ -37,6 +51,23 @@ const Header: React.FC<HeaderProps> = ({ mainRef }) => {
   }
   const handleBtnClose = () => {
     closeMobileMenu();
+  };
+
+  const handleButtonLink = (id: number) => {
+    closeMobileMenu();
+    topNavMenu.current && topNavMenu.current.removeAttribute("inert");
+
+    const media = window.matchMedia("(max-width: 48em)");
+    if (media.matches) {
+      //mobile
+      setTimeout(() => {
+        setPlanetIndex(id);
+      }, 500);
+    } else {
+      //desktop
+      setActiveButton(id);
+      setPlanetIndex(id);
+    }
   };
 
   useEffect(() => {
@@ -68,7 +99,7 @@ const Header: React.FC<HeaderProps> = ({ mainRef }) => {
 
           <button
             id="btnOpen"
-            className="topnav__open"
+            className="topnav__open topnav__button"
             aria-expanded="false"
             aria-labelledby="nav-label"
             onClick={handleBtnOpen}
@@ -77,7 +108,7 @@ const Header: React.FC<HeaderProps> = ({ mainRef }) => {
             <img src={hamburgerMenuIcon} alt="" width="24" height="17" />
           </button>
           <button
-            className="topnav__close"
+            className="topnav__close topnav__button"
             id="btnClose"
             aria-label="Close"
             onClick={handleBtnClose}
@@ -93,46 +124,22 @@ const Header: React.FC<HeaderProps> = ({ mainRef }) => {
             ref={topNavMenu}
           >
             <ul className="topnav__links">
-              <li className="topnav__item">
-                <a href="" className="topnav__link --mercury">
-                  Mercury
-                </a>
-              </li>
-              <li className="topnav__item">
-                <a href="" className="topnav__link --venus">
-                  Venus
-                </a>
-              </li>
-              <li className="topnav__item">
-                <a href="" className="topnav__link --earth">
-                  Earth
-                </a>
-              </li>
-              <li className="topnav__item">
-                <a href="" className="topnav__link --mars">
-                  Mars
-                </a>
-              </li>
-              <li className="topnav__item">
-                <a href="" className="topnav__link --jupiter">
-                  Jupiter
-                </a>
-              </li>
-              <li className="topnav__item">
-                <a href="" className="topnav__link --saturn">
-                  Saturn
-                </a>
-              </li>
-              <li className="topnav__item">
-                <a href="" className="topnav__link --uranus">
-                  Uranus
-                </a>
-              </li>
-              <li className="topnav__item">
-                <a href="" className="topnav__link --neptune">
-                  Neptune
-                </a>
-              </li>
+              {planets.map((planet, id) => (
+                <li
+                  className="topnav__item"
+                  key={planet.name}
+                  onClick={() => handleButtonLink(id)}
+                >
+                  <button
+                    type="button"
+                    className={`topnav__link --${planet.name.toLowerCase()} ${
+                      activeButton === id ? "--active" : ""
+                    }`}
+                  >
+                    {planet.name}
+                  </button>
+                </li>
+              ))}
             </ul>
           </div>
         </nav>
