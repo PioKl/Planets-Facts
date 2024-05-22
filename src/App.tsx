@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import "./styles/App.scss";
 import Header from "./components/Header";
 import PlanetFacts from "./components/PlanetFacts";
@@ -6,14 +6,19 @@ import data from "./data/data.json";
 import { Planet } from "./types/types";
 
 function App() {
-  const planet: Planet[] = data;
+  const planets: Planet[] = data;
+  const [planetIndex, setPlanetIndex] = useState(0);
 
   const mainRef = useRef<HTMLDivElement>(null);
   return (
     <>
-      <Header mainRef={mainRef} />
+      <Header
+        mainRef={mainRef}
+        planets={planets}
+        setPlanetIndex={setPlanetIndex}
+      />
       <main className="main" ref={mainRef}>
-        <PlanetFacts planet={planet} />
+        <PlanetFacts planets={planets} planetIndex={planetIndex} />
       </main>
     </>
   );
