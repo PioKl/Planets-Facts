@@ -40,7 +40,7 @@
   font-weight: bold;
   margin-bottom: 9.5rem;
   padding: 2rem 0;
-  overflow: hidden;
+  //overflow: hidden;
 
   @include tablet {
     flex-direction: column;
@@ -82,14 +82,6 @@
     letter-spacing: 1.93px;
     color: var(--c-white);
 
-    @include tablet {
-      line-height: 2.5rem;
-    }
-
-    @include desktopSmall {
-      letter-spacing: 2.57px;
-    }
-
     &.--two {
       &:after {
         content: "Structure";
@@ -102,12 +94,12 @@
     }
 
     @include tablet {
-      cursor: pointer;
+      width: 100%;
       padding-block: 0.8rem;
       padding-left: 2rem;
       text-align: left;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      width: 100%;
+      line-height: 2.5rem;
+      border: 1px solid rgba(216, 216, 216, 0.2);
 
       &:before {
         color: rgba(255, 255, 255, 0.5);
@@ -138,17 +130,72 @@
     }
 
     @include desktopSmall {
+      cursor: pointer;
+      letter-spacing: 2.57px;
       padding-block: 1.05rem;
+      &:hover {
+        border-color: transparent;
+        background-color: rgba(216, 216, 216, 0.2);
+      }
     }
 
     &.--active {
       color: rgba(255, 255, 255, 0.5);
+
       @include tablet {
         color: var(--col-white);
-        background-color: #419ebb;
         border-color: transparent;
+
+        &.--mercury {
+          background-color: var(--c-mercury);
+        }
+        &.--venus {
+          background-color: var(--c-venus);
+        }
+        &.--earth {
+          background-color: var(--c-earth);
+        }
+        &.--mars {
+          background-color: var(--c-mars);
+        }
+        &.--jupiter {
+          background-color: var(--c-jupiter);
+        }
+        &.--saturn {
+          background-color: var(--c-saturn);
+        }
+        &.--uranus {
+          background-color: var(--c-uranus);
+        }
+        &.--neptune {
+          background-color: var(--c-neptune);
+        }
       }
       span {
+        &.--mercury {
+          background-color: var(--c-mercury);
+        }
+        &.--venus {
+          background-color: var(--c-venus);
+        }
+        &.--earth {
+          background-color: var(--c-earth);
+        }
+        &.--mars {
+          background-color: var(--c-mars);
+        }
+        &.--jupiter {
+          background-color: var(--c-jupiter);
+        }
+        &.--saturn {
+          background-color: var(--c-saturn);
+        }
+        &.--uranus {
+          background-color: var(--c-uranus);
+        }
+        &.--neptune {
+          background-color: var(--c-neptune);
+        }
         &:after {
           content: "";
           display: block;
@@ -156,7 +203,7 @@
           top: 3.8rem;
           width: 100%;
           height: 0.4rem;
-          //background-color: red;
+          background-color: inherit;
 
           @include tablet {
             content: none;
@@ -168,6 +215,7 @@
 }
 .planetPictureContainer {
   grid-area: planetPicture;
+  position: relative;
   display: grid;
   place-items: center;
   margin-bottom: 9.8rem;
@@ -181,17 +229,166 @@
   }
 
   &__image {
-    max-width: 11.1rem;
-    max-height: 11.1rem;
+    ~ img {
+      bottom: -15%;
+
+      @include desktopSmall {
+        bottom: -3%;
+      }
+    }
+    &.--mercury {
+      max-width: 11.1rem;
+      max-height: 11.1rem;
+
+      @include tablet {
+        max-width: 18.4rem;
+        max-height: 18.4rem;
+      }
+
+      @include desktopSmall {
+        max-width: 29rem;
+        max-height: 29rem;
+      }
+      ~ img {
+        bottom: -20%;
+
+        @include desktopSmall {
+          bottom: -3%;
+        }
+      }
+    }
+    &.--venus {
+      max-width: 15.4rem;
+      max-height: 15.4rem;
+
+      @include tablet {
+        max-width: 25.3rem;
+        max-height: 25.3rem;
+      }
+
+      @include desktopSmall {
+        max-width: 40rem;
+        max-height: 40rem;
+      }
+    }
+    &.--earth {
+      max-width: 17.3rem;
+      max-height: 17.3rem;
+
+      @include tablet {
+        max-width: 28.5rem;
+        max-height: 28.5rem;
+      }
+
+      @include desktopSmall {
+        max-width: 45rem;
+        max-height: 45rem;
+      }
+    }
+    &.--mars {
+      max-width: 12.9rem;
+      max-height: 12.9rem;
+
+      @include tablet {
+        max-width: 21.3rem;
+        max-height: 21.3rem;
+      }
+
+      @include desktopSmall {
+        max-width: 33.6rem;
+        max-height: 33.6rem;
+      }
+
+      ~ img {
+        bottom: -18%;
+
+        @include desktopSmall {
+          bottom: -3%;
+        }
+      }
+    }
+    &.--jupiter {
+      max-width: 22.4rem;
+      max-height: 22.4rem;
+
+      @include tablet {
+        max-width: 36.9rem;
+        max-height: 36.9rem;
+      }
+
+      @include desktopSmall {
+        max-width: 58.2rem;
+        max-height: 58.2rem;
+        ~ img {
+          bottom: 3%;
+        }
+      }
+    }
+    &.--saturn {
+      max-width: 25.6rem;
+      max-height: 25.6rem;
+
+      @include tablet {
+        max-width: 42.2rem;
+        max-height: 42.2rem;
+      }
+
+      @include desktopSmall {
+        max-width: 66.6rem;
+        max-height: 66.6rem;
+      }
+
+      ~ img {
+        bottom: 12.5%;
+
+        @include desktopSmall {
+          bottom: 11%;
+        }
+      }
+    }
+    &.--uranus {
+      max-width: 17.6rem;
+      max-height: 17.6rem;
+
+      @include tablet {
+        max-width: 29rem;
+        max-height: 29rem;
+      }
+
+      @include desktopSmall {
+        max-width: 45.8rem;
+        max-height: 45.8rem;
+      }
+    }
+    &.--neptune {
+      max-width: 17.3rem;
+      max-height: 17.3rem;
+
+      @include tablet {
+        max-width: 28.5rem;
+        max-height: 28.5rem;
+      }
+
+      @include desktopSmall {
+        max-width: 45rem;
+        max-height: 45rem;
+      }
+    }
+  }
+
+  &__geologyImage {
+    position: absolute;
+    max-width: 5.43rem;
+    max-height: 6.63rem;
 
     @include tablet {
-      max-width: 18.4rem;
-      max-height: 18.4rem;
+      max-width: 8.15rem;
+      max-height: 9.95rem;
     }
 
     @include desktopSmall {
-      max-width: 29rem;
-      max-height: 29rem;
+      max-width: 16.3rem;
+      max-height: 19.9rem;
     }
   }
 }
@@ -219,6 +416,10 @@
 
   &__info {
     margin-bottom: 3.2rem;
+    min-height: 13.5rem;
+    @include desktopSmall {
+      min-height: 15rem;
+    }
   }
 
   &__source {

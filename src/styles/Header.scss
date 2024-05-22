@@ -52,7 +52,7 @@ $mobileColorNeptune: #497efa;
     }
   }
 
-  button {
+  &__button {
     display: grid;
     background: none;
     border: none;
@@ -116,7 +116,7 @@ $mobileColorNeptune: #497efa;
 
   &__links {
     display: flex;
-    gap: 3.3rem;
+    gap: 1.65rem;
     align-items: center;
     margin: 0;
     padding: 0;
@@ -124,6 +124,10 @@ $mobileColorNeptune: #497efa;
     @media (width < 48em) {
       gap: 0rem;
       flex-direction: column;
+    }
+
+    @include desktopSmall {
+      gap: 3.3rem;
     }
   }
 
@@ -139,12 +143,19 @@ $mobileColorNeptune: #497efa;
   }
 
   &__link {
+    background-color: transparent;
+    border: none;
+    text-transform: uppercase;
+    line-height: inherit;
+    letter-spacing: inherit;
+    cursor: pointer;
     color: var(--c-white);
     @media (width < 48em) {
       display: flex;
       align-items: center;
       width: inherit;
       padding-block: 2rem;
+      padding-inline: 0.1rem;
 
       &:before {
         content: "";
@@ -207,22 +218,19 @@ $mobileColorNeptune: #497efa;
       }
     }
 
-    @include desktopSmall {
+    @include tablet {
       position: relative;
-      display: grid;
-      place-items: center;
       width: 6.8rem;
 
       &:after {
         content: "";
         display: block;
         position: absolute;
-        top: 4.2rem;
+        top: 3.65rem;
         width: 0;
         height: 0.4rem;
         transition: all 0.2s ease-in-out;
       }
-
       &.--mercury {
         &:after {
           background-color: var(--c-mercury);
@@ -267,6 +275,20 @@ $mobileColorNeptune: #497efa;
         &:after {
           background-color: var(--c-neptune);
         }
+      }
+      &.--active {
+        &:after {
+          width: 100%;
+        }
+      }
+    }
+
+    @include desktopSmall {
+      display: grid;
+      place-items: center;
+
+      &:after {
+        top: -2.2rem;
       }
 
       &:hover {
