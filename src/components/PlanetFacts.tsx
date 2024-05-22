@@ -8,7 +8,6 @@ interface PlanetFactsProps {
 }
 
 const PlanetFacts: React.FC<PlanetFactsProps> = ({ planets, planetIndex }) => {
-  console.log(planetIndex);
   const [informationOptionChoosed, setInformationOptionChoosed] =
     useState("overview");
   const handleButtonClick = (name: string) => {
