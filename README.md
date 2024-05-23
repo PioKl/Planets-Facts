@@ -34,8 +34,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://github.com/PioKl/Planets-Facts)
-- Live Site URL: [Add live site URL here](https://piokl.github.io/Planets-Facts/)
+- Solution URL: [https://github.com/PioKl/Planets-Facts]
+- Live Site URL: [https://piokl.github.io/Planets-Facts/]
 
 ## My process
 
