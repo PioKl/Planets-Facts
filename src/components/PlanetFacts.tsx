@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "../styles/PlanetFacts.scss";
 import { Planet } from "../types/types";
+import { motion, AnimatePresence } from "framer-motion";
 
 interface PlanetFactsProps {
   planets: Planet[];
@@ -16,29 +17,41 @@ const PlanetFacts: React.FC<PlanetFactsProps> = ({ planets, planetIndex }) => {
   return (
     <div className="wrapper planetContainer">
       <div className="planetPictureContainer">
-        <img
-          className={`planetPictureContainer__image --${planets[
-            planetIndex
-          ].name.toLowerCase()}`}
-          src={
-            informationOptionChoosed === "overview" ||
-            informationOptionChoosed === "geology"
-              ? planets[planetIndex].images.planet
-              : "" || informationOptionChoosed === "structure"
-              ? planets[planetIndex].images.internal
-              : ""
-          }
-          alt=""
-        />
-        {informationOptionChoosed === "geology" && (
-          <img
-            className={`planetPictureContainer__geologyImage --${planets[
+        <AnimatePresence mode="wait" initial={false}>
+          <motion.img
+            key={`planet-${planetIndex}`}
+            className={`planetPictureContainer__image --${planets[
               planetIndex
             ].name.toLowerCase()}`}
-            src={planets[planetIndex].images.geology}
+            src={
+              informationOptionChoosed === "overview" ||
+              informationOptionChoosed === "geology"
+                ? planets[planetIndex].images.planet
+                : "" || informationOptionChoosed === "structure"
+                ? planets[planetIndex].images.internal
+                : ""
+            }
             alt=""
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 2 }}
           />
-        )}
+        </AnimatePresence>
+        <AnimatePresence mode="wait" initial={false}>
+          {informationOptionChoosed === "geology" && (
+            <motion.img
+              key={`geology-${planetIndex}`}
+              className={`planetPictureContainer__geologyImage --${planets[
+                planetIndex
+              ].name.toLowerCase()}`}
+              src={planets[planetIndex].images.geology}
+              alt=""
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 2 }}
+            />
+          )}
+        </AnimatePresence>
       </div>
       <div className="planetButtonsContainer">
         <button
