@@ -24,7 +24,7 @@
 
   @include desktopSmall {
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto auto;
+    grid-template-rows: auto 1fr auto;
     grid-template-areas:
       "planetPicture planetInfo"
       "planetPicture planetButtons"
@@ -51,6 +51,7 @@
   }
 
   @include desktopSmall {
+    justify-content: start;
     max-width: 36rem;
     width: 100%;
     margin-left: auto;
@@ -343,8 +344,8 @@
       }
 
       @include desktopSmall {
-        max-width: 66.6rem;
-        max-height: 66.6rem;
+        max-width: 61.6rem;
+        max-height: 61.6rem;
       }
 
       ~ img {
@@ -411,6 +412,7 @@
   }
   @include desktopSmall {
     max-width: 36rem;
+    margin-bottom: 3.9rem;
     margin-left: auto;
   }
 
@@ -425,7 +427,6 @@
 
   &__info {
     margin-bottom: 3.2rem;
-    min-height: 13.5rem;
     @include desktopSmall {
       min-height: 15rem;
     }
