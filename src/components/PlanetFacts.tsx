@@ -32,9 +32,9 @@ const PlanetFacts: React.FC<PlanetFactsProps> = ({ planets, planetIndex }) => {
                 : ""
             }
             alt=""
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 2 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ type: "spring", duration: 2 }}
           />
         </AnimatePresence>
         <AnimatePresence mode="wait" initial={false}>
@@ -46,9 +46,9 @@ const PlanetFacts: React.FC<PlanetFactsProps> = ({ planets, planetIndex }) => {
               ].name.toLowerCase()}`}
               src={planets[planetIndex].images.geology}
               alt=""
-              initial={{ opacity: 0, scale: 0.5 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 2 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1 }}
             />
           )}
         </AnimatePresence>
