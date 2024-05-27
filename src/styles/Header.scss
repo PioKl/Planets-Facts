@@ -230,6 +230,7 @@ $mobileColorNeptune: #497efa;
         width: 0;
         height: 0.4rem;
         transition: all 0.2s ease-in-out;
+        transform: scaleX(0); //rozwijanie się bordera od środka
       }
       &.--mercury {
         &:after {
@@ -279,6 +280,7 @@ $mobileColorNeptune: #497efa;
       &.--active {
         &:after {
           width: 100%;
+          transform: scaleX(1); //rozwijanie się bordera od środka
         }
       }
     }
@@ -288,6 +290,7 @@ $mobileColorNeptune: #497efa;
       place-items: center;
 
       &:after {
+        transform: initial;
         top: -2.2rem;
       }
 

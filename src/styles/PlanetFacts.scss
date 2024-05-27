@@ -40,7 +40,6 @@
   font-weight: bold;
   margin-bottom: 9.5rem;
   padding: 2rem 0;
-  //overflow: hidden;
 
   @include tablet {
     flex-direction: column;
@@ -81,6 +80,7 @@
     text-transform: uppercase;
     letter-spacing: 1.93px;
     color: rgba(255, 255, 255, 0.5);
+    transition: all 0.2s ease-in-out;
 
     &.--two {
       &:after {
@@ -136,6 +136,20 @@
       &:hover {
         border-color: transparent;
         background-color: rgba(216, 216, 216, 0.2);
+      }
+    }
+
+    span {
+      &:after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 3.8rem;
+        width: 0;
+        height: 0.4rem;
+        background-color: inherit;
+        transition: all 0.2s ease-in-out;
+        transform: scaleX(0); //rozwijanie się bordera od środka
       }
     }
 
@@ -197,13 +211,8 @@
           background-color: var(--c-neptune);
         }
         &:after {
-          content: "";
-          display: block;
-          position: absolute;
-          top: 3.8rem;
           width: 100%;
-          height: 0.4rem;
-          background-color: inherit;
+          transform: scaleX(1); //rozwijanie się bordera od środka
 
           @include tablet {
             content: none;
