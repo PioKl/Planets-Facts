@@ -92,7 +92,7 @@ const Header: React.FC<CombinedProps> = ({
     <div className="header">
       <div className="topnav">
         <h2 className="topnav__logo">THE PLANETS</h2>
-        <nav>
+        <nav className="topnav__nav">
           <span id="nav-label" hidden>
             Navigation
           </span>
