@@ -12,6 +12,7 @@ function App() {
   const mainRef = useRef<HTMLDivElement>(null);
   return (
     <>
+      <div className="stars"></div>
       <Header
         mainRef={mainRef}
         planets={planets}
