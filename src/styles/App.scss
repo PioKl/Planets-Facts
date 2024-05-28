@@ -1,5 +1,23 @@
 @use "Resolutions" as *;
 
+.stars {
+  position: absolute;
+  min-height: 100vh;
+  width: 100%;
+  background-image: url("../assets/background-stars.svg");
+  background-size: cover;
+  animation: starsMovingAnimation 160s linear infinite;
+}
+
+@keyframes starsMovingAnimation {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -200vw 0;
+  }
+}
+
 .main {
   position: relative;
   overflow: hidden;
