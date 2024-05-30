@@ -2,6 +2,7 @@
 
 .stars {
   position: absolute;
+  z-index: -1;
   min-height: 100vh;
   width: 100%;
   background-image: url("../assets/background-stars.svg");

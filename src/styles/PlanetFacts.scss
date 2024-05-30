@@ -249,15 +249,21 @@
     &.--mercury {
       max-width: 11.1rem;
       max-height: 11.1rem;
+      width: 11.1rem;
+      height: 11.1rem;
 
       @include tablet {
         max-width: 18.4rem;
         max-height: 18.4rem;
+        width: 18.4rem;
+        height: 18.4rem;
       }
 
       @include desktopSmall {
         max-width: 29rem;
         max-height: 29rem;
+        width: 29rem;
+        height: 29rem;
       }
       ~ img {
         bottom: -20%;
@@ -270,43 +276,61 @@
     &.--venus {
       max-width: 15.4rem;
       max-height: 15.4rem;
+      width: 15.4rem;
+      height: 15.4rem;
 
       @include tablet {
         max-width: 25.3rem;
         max-height: 25.3rem;
+        width: 25.3rem;
+        height: 25.3rem;
       }
 
       @include desktopSmall {
         max-width: 40rem;
         max-height: 40rem;
+        width: 40rem;
+        height: 40rem;
       }
     }
     &.--earth {
       max-width: 17.3rem;
       max-height: 17.3rem;
+      width: 17.3rem;
+      height: 17.3rem;
 
       @include tablet {
         max-width: 28.5rem;
         max-height: 28.5rem;
+        width: 28.5rem;
+        height: 28.5rem;
       }
 
       @include desktopSmall {
         max-width: 45rem;
         max-height: 45rem;
+        width: 45rem;
+        height: 45rem;
       }
     }
     &.--mars {
       max-width: 12.9rem;
       max-height: 12.9rem;
+      width: 12.9rem;
+      height: 12.9rem;
 
       @include tablet {
         max-width: 21.3rem;
         max-height: 21.3rem;
+        width: 21.3rem;
+        height: 21.3rem;
       }
 
       @include desktopSmall {
         max-width: 33.6rem;
         max-height: 33.6rem;
+        width: 33.6rem;
+        height: 33.6rem;
       }
 
       ~ img {
@@ -320,15 +344,21 @@
     &.--jupiter {
       max-width: 22.4rem;
       max-height: 22.4rem;
+      width: 22.4rem;
+      height: 22.4rem;
 
       @include tablet {
         max-width: 36.9rem;
         max-height: 36.9rem;
+        width: 36.9rem;
+        height: 36.9rem;
       }
 
       @include desktopSmall {
         max-width: 58.2rem;
         max-height: 58.2rem;
+        width: 58.2rem;
+        height: 58.2rem;
         ~ img {
           bottom: 3%;
         }
@@ -337,15 +367,21 @@
     &.--saturn {
       max-width: 25.6rem;
       max-height: 25.6rem;
+      width: 25.6rem;
+      height: 25.6rem;
 
       @include tablet {
         max-width: 42.2rem;
         max-height: 42.2rem;
+        width: 42.2rem;
+        height: 42.2rem;
       }
 
       @include desktopSmall {
         max-width: 61.6rem;
         max-height: 61.6rem;
+        width: 61.6rem;
+        height: 61.6rem;
       }
 
       ~ img {
@@ -359,29 +395,41 @@
     &.--uranus {
       max-width: 17.6rem;
       max-height: 17.6rem;
+      width: 17.6rem;
+      height: 17.6rem;
 
       @include tablet {
         max-width: 29rem;
         max-height: 29rem;
+        width: 29rem;
+        height: 29rem;
       }
 
       @include desktopSmall {
         max-width: 45.8rem;
         max-height: 45.8rem;
+        width: 45.8rem;
+        height: 45.8rem;
       }
     }
     &.--neptune {
       max-width: 17.3rem;
       max-height: 17.3rem;
+      width: 17.3rem;
+      height: 17.3rem;
 
       @include tablet {
         max-width: 28.5rem;
         max-height: 28.5rem;
+        width: 28.5rem;
+        height: 28.5rem;
       }
 
       @include desktopSmall {
         max-width: 45rem;
         max-height: 45rem;
+        width: 45rem;
+        height: 45rem;
       }
     }
   }
